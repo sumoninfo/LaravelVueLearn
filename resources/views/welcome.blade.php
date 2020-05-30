@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>How to Use Vuex In Laravel Application</title>
+        <title>Laravel Vue Js CRUD With Vue Router & Sweet Alert</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 70px;
             }
 
             .links > a {
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    How to Use Vuex In Laravel Application
+                    Laravel Vue Js CRUD With Vue Router & Sweet Alert
                 </div>
             </div>
         </div>
