@@ -8,7 +8,8 @@
 <body>
 <div class="container" id="app">
     <div class="row">
-        <article-component></article-component>
+    <post-component></post-component>
+        <!-- <article-component></article-component> -->
     </div>
 </div>
 <script src="{{ mix('js/app.js') }}"></script>

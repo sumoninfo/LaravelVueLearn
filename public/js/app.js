@@ -2229,8 +2229,20 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-var api = 'http://127.0.0.1:8000/posts';
+var api = 'http://localhost:8000/posts';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2252,7 +2264,7 @@ var api = 'http://127.0.0.1:8000/posts';
         if (data.data.length) {
           var _this$list;
 
-          _this.page += 1;
+          _this.page += 1; // this.list.unshift(...data.data.reverse());
 
           (_this$list = _this.list).push.apply(_this$list, _toConsumableArray(data.data));
 
@@ -63729,25 +63741,43 @@ var render = function() {
             _vm._v("Laravel vue-infinite-loading")
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "panel-body" },
-            _vm._l(_vm.list, function(item, $index) {
-              return _c("div", { key: $index }, [
-                _c("h2", [_vm._v(_vm._s(item.title))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(item.body))])
-              ])
-            }),
-            0
-          ),
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-6 overflow-auto",
+                  staticStyle: { height: "80vh" }
+                },
+                [
+                  _vm._l(_vm.list, function(item, $index) {
+                    return _c("div", { key: $index }, [
+                      _c("h2", [
+                        _vm._v(_vm._s(item.id) + " -- " + _vm._s(item.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(item.body))])
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c("infinite-loading", {
+                    on: { infinite: _vm.infiniteHandler }
+                  }),
+                  _vm._v(" "),
+                  _c("div"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _vm._v(
+                      "\n                         Hello 3 \n                      "
+                    )
+                  ])
+                ],
+                2
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "panel-footer" },
-            [_c("infinite-loading", { on: { infinite: _vm.infiniteHandler } })],
-            1
-          )
+          _c("div", { staticClass: "panel-footer" })
         ])
       ])
     ])
@@ -80077,8 +80107,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
@@ -80108,16 +80138,16 @@ __webpack_require__(/*! ./customEvents */ "./resources/js/customEvents.js"); //I
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]); //Import Sweetalert2
 
 
-window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a;
-var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.mixin({
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a;
+var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
   timer: 3000,
   timerProgressBar: true,
   onOpen: function onOpen(toast) {
-    toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.stopTimer);
-    toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.resumeTimer);
+    toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.stopTimer);
+    toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.resumeTimer);
   }
 });
 window.Toast = Toast; //Import v-from
@@ -80545,8 +80575,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\xampp_7_2_28\htdocs\LaravelTutorials\LaravelVueLearn\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\xampp_7_2_28\htdocs\LaravelTutorials\LaravelVueLearn\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp_7_4\htdocs\Learn\LaravelVueLearn\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp_7_4\htdocs\Learn\LaravelVueLearn\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
